@@ -12,5 +12,8 @@
 
 -(void) displayAllFilesAtPath:(NSString*)path;
 -(NSArray*) allFilesAtPath:(NSString*)path;
+-(NSArray*) sortedAllFileAtPath:(NSString*)path;
+
 -(BOOL) isExistFilename:(NSString*)filename atPath:(NSString*)path;
+
 @end

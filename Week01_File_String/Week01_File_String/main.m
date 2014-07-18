@@ -36,6 +36,10 @@ int main(int argc, const char * argv[])
             NSLog(@"%@ 에 %@ 파일이 존하지 않음.",path,filename);
         }
         
+
+        NSLog(@"추가미션 ");
+        NSArray* arr = [fm sortedAllFileAtPath:path];
+        
     }
     return 0;
 }

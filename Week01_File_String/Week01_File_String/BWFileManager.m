@@ -59,6 +59,11 @@
     return [fileManager contentsOfDirectoryAtPath:path error:NULL];
 }
 
+-(NSArray*) sortedAllFileAtPath:(NSString*)path
+{
+    NSArray* arr = [fileManager contentsOfDirectoryAtPath:path error:NULL];
+    return [arr sortedArrayUsingSelector:@selector(compare:)];
+}
 
 //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"== %@", filename];
 //return [predicate evaluateWithObject:arr];
