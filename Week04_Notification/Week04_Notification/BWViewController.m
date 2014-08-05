@@ -20,12 +20,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString* save = [[NSUserDefaults standardUserDefaults] stringForKey:@"save"];
+    if(save!=nil && ![save isEqualToString:@""]){
+        [self setImageWithImageName:save];
+    }
+    
     model = [[BWModel alloc]init];
     
     NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
     [notification addObserver:self selector:@selector(imgChange:) name:@"rand" object:nil];
-    
-    
     
     //KVO (Key Value Observing)
     [model addObserver:self
@@ -37,9 +40,12 @@
 - (void)imgChange :(NSNotification *)notification
 {
     NSString* result = [[notification userInfo] objectForKey:@"result"];
-    
-    
-    UIImage* img = [UIImage imageNamed:result];
+    [self setImageWithImageName:result];
+}
+
+- (void)setImageWithImageName:(NSString*)imgName
+{
+    UIImage* img = [UIImage imageNamed:imgName];
     [_imgView setImage:img];
 }
 
@@ -77,4 +83,5 @@
         NSLog(@"%@",result);
     }
 }
+
 @end
