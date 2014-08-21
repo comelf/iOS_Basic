@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BWDataModel : NSObject
+@interface BWDataModel : NSObject 
 
 -(NSInteger)numberOfData;
 -(NSDictionary*)objectAtIndex:(NSUInteger)index;

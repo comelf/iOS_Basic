@@ -84,6 +84,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
+    NSURL *url = [NSURL URLWithString:[item objectForKey:@"image"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLConnection* con = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    
     cell.textLabel.text = [item objectForKey:@"title"];
     cell.detailTextLabel.text = [item objectForKey:@"date"];
     
@@ -128,4 +134,35 @@
 {
     return YES;
 }
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+
+{
+    
+    UIImage* image = [[UIImage alloc] initWithData:data];
+    
+    NSString* fath = [self getFileData:@"qqq"];
+    NSLog(@"%@",fath);
+}
+
+- (NSString *)getFileData: (NSString *)fileDirPath
+{
+    NSArray *myPathList = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *myPath    = [myPathList  objectAtIndex:0];
+    NSError *err        = nil;
+    NSString *fData     = @"";
+    
+    myPath = [myPath stringByAppendingPathComponent:fileDirPath];
+    if([[NSFileManager defaultManager] fileExistsAtPath:myPath])
+    {
+        fData = [NSString stringWithContentsOfFile:myPath encoding:NSUTF8StringEncoding error:&err];
+        if(err) NSLog(@"getFileData() - ERROR: %@",[err localizedDescription]);
+    }
+    else
+    {
+        NSLog(@"getFileData() - ERROR: This file '%@' does not exist",myPath);
+    }
+    return fData;
+}
+
 @end

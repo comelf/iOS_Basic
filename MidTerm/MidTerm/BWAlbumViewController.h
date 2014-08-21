@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BWDataModel.h"
-@interface BWAlbumViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BWAlbumViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate ,NSURLConnectionDelegate>
 
 
 @property BWDataModel *dataModel;

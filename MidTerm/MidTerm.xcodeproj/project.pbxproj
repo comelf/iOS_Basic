@@ -46,6 +46,7 @@
 		6B3E323A1999DAA000ED4805 /* BWPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E32391999DAA000ED4805 /* BWPhotoViewController.m */; };
 		6B3E323D1999DB5B00ED4805 /* BWDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E323C1999DB5B00ED4805 /* BWDataModel.m */; };
 		6B3E32401999E73800ED4805 /* BWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E323F1999E73800ED4805 /* BWTableView.m */; };
+		6B50904D19A32B8300EFF723 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B50904C19A32B8300EFF723 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		6B3E323C1999DB5B00ED4805 /* BWDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWDataModel.m; sourceTree = "<group>"; };
 		6B3E323E1999E73800ED4805 /* BWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWTableView.h; sourceTree = "<group>"; };
 		6B3E323F1999E73800ED4805 /* BWTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWTableView.m; sourceTree = "<group>"; };
+		6B50904B19A32B8300EFF723 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6B50904C19A32B8300EFF723 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				6B3E320B1999D78D00ED4805 /* image */,
 				6B3E31E51999D78600ED4805 /* BWAppDelegate.h */,
 				6B3E31E61999D78600ED4805 /* BWAppDelegate.m */,
+				6B50904B19A32B8300EFF723 /* Reachability.h */,
+				6B50904C19A32B8300EFF723 /* Reachability.m */,
 				6B3E31E81999D78600ED4805 /* Main.storyboard */,
 				6B3E31EB1999D78600ED4805 /* BWAlbumViewController.h */,
 				6B3E31EC1999D78600ED4805 /* BWAlbumViewController.m */,
@@ -364,6 +369,7 @@
 				6B3E323A1999DAA000ED4805 /* BWPhotoViewController.m in Sources */,
 				6B3E31ED1999D78600ED4805 /* BWAlbumViewController.m in Sources */,
 				6B3E32401999E73800ED4805 /* BWTableView.m in Sources */,
+				6B50904D19A32B8300EFF723 /* Reachability.m in Sources */,
 				6B3E31E31999D78600ED4805 /* main.m in Sources */,
 				6B3E31E71999D78600ED4805 /* BWAppDelegate.m in Sources */,
 				6B3E323D1999DB5B00ED4805 /* BWDataModel.m in Sources */,
@@ -571,6 +577,7 @@
 				6B3E32071999D78600ED4805 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B3E32081999D78600ED4805 /* Build configuration list for PBXNativeTarget "MidTermTests" */ = {
 			isa = XCConfigurationList;
@@ -579,6 +586,7 @@
 				6B3E320A1999D78600ED4805 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
