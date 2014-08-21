@@ -92,27 +92,25 @@
                     
                     if (nil != output) {
                         NSLog(@"server : %@", output);
+                        
+                        NSMutableData *imgData = [[NSMutableData alloc] init];
+                        while ([inputStream hasBytesAvailable] && ( 0 < maxSize)) {
+                            len = [inputStream read:buffer maxLength:sizeof(buffer)];
+                            if (len > 0) {
+                                [imgData appendBytes:buffer length:len];
+                                maxSize -= 1024;
+                            }
+                        }
+                        
+                        UIImage *image = [UIImage imageWithData:imgData];
+                        [_detailImage setImage:image ];
+                        
+                        NSString *ack  = @"ACK";
+                        NSData *response = [[NSData alloc] initWithData:[ack dataUsingEncoding:NSASCIIStringEncoding]];
+                        [outputStream write:[response bytes] maxLength:[response length]];
                     }
                 }
-                
-                NSMutableData *imgData = [[NSMutableData alloc] init];
-
-                while ([inputStream hasBytesAvailable] && ( 0 < maxSize)) {
-                    len = [inputStream read:buffer maxLength:sizeof(buffer)];
-                    if (len > 0) {
-                        [imgData appendBytes:buffer length:len];
-                        maxSize -= 1024;
-                    }
-                }
-                
-                UIImage *image = [UIImage imageWithData:imgData];
-                [_detailImage setImage:image ];
-                
-                NSString *ack  = @"ACK";
-                NSData *response = [[NSData alloc] initWithData:[ack dataUsingEncoding:NSASCIIStringEncoding]];
-                [outputStream write:[response bytes] maxLength:[response length]];
             }
-            
 			break;
             
 		case NSStreamEventErrorOccurred:
