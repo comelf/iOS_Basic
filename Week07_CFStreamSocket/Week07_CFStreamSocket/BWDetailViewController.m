@@ -87,11 +87,10 @@
                 len = [inputStream read:buffer maxLength:8];
                 if (len > 0) {
                     
-                    NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
-                    maxSize = [output intValue];
+                    maxSize = atol((const char*)buffer);
                     
-                    if (nil != output) {
-                        NSLog(@"server : %@", output);
+                    if (0 <= maxSize) {
+                        NSLog(@"server : %d", maxSize);
                         
                         NSMutableData *imgData = [[NSMutableData alloc] init];
                         while ([inputStream hasBytesAvailable] && ( 0 < maxSize)) {
@@ -122,7 +121,7 @@
 			break;
             
 		default:
-			NSLog(@"Unknown event");
+			;
 	}
     
 }
