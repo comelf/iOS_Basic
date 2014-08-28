@@ -16,7 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"GraphView init");
+        
     }
     return self;
 }
@@ -25,8 +25,6 @@
 -(void)setData:(NSArray*)data
 {
     yearData = data;
-    
-            NSLog(@"GraphView data");
 }
 
 -(void)refresh
@@ -46,7 +44,7 @@
         CGFloat angleArray[c];
         CGFloat offset;
         int sum=0;
-        int radius = 100;
+        int radius = 90;
         
         CGContextRef context = UIGraphicsGetCurrentContext();
         
@@ -73,12 +71,12 @@
                 CGContextAddArc(context, radius, radius, radius,offset,offset+angleArray[i], 0);
             offset+=angleArray[i];
             
+            CGSize myShadowOffset = CGSizeMake (3,  3);
+            CGContextSetShadow(context, myShadowOffset, 5);
             
             CGContextSetFillColorWithColor(context,((UIColor *)[myColorArray objectAtIndex:i]).CGColor);
             CGContextClosePath(context); 
             CGContextFillPath(context);
-            
-            
         }
     }
 }
