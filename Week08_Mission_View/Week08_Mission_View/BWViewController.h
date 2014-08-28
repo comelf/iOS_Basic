@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BWBarGraphView.h"
+#import "BWPieGraphView.h"
 
 @interface BWViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet BWBarGraphView *barGraphView;
+@property (weak, nonatomic) IBOutlet BWPieGraphView *pieGraphView;
 @end
